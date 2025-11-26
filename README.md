@@ -43,19 +43,45 @@ PROCEDURE
 •	If any Error, correct it in code and execute again
 •	Verify the generated waveform using Tabulation and Model Waveform
 
-Model Waveform
-
-<img width="703" height="679" alt="image" src="https://github.com/user-attachments/assets/e7c7c7f8-ccf2-41ac-b1f3-325989941a6f" />
-
 Program
+```
+import numpy as np
+import matplotlib.pyplot as plt
+Ac = 122.6
+fc = 1000
+Am = 61.3
+fm = 500
+fs = 70000
+t = np.arange(0, 2/fm, 1/fs)
+Wm = 2 * np.pi * fm
+Wc = 2 * np.pi * fc
+Em = Am * np.sin(Wm * t)
+Ec = Ac * np.sin(Wc * t)
+Edsbsc = ((Am / 2) * np.cos((Wc - Wm) * t)) - ((Am / 2) * np.cos((Wc + Wm) * t))
+plt.figure(figsize=(10, 6))
+plt.subplot(3, 1, 1)
+plt.plot(t, Em)
+plt.grid()
+plt.subplot(3, 1, 2)
+plt.plot(t, Ec)
 
+plt.grid()
+plt.subplot(3, 1, 3)
+plt.plot(t, Edsbsc)
+plt.grid()
+plt.tight_layout()
+plt.show()
+```
 Output Graph
 
+<img width="1070" height="732" alt="image" src="https://github.com/user-attachments/assets/26916d6f-b915-467e-ae7d-c1839aaa3195" />
 
 Tablular Column
+
+<img width="1688" height="941" alt="image" src="https://github.com/user-attachments/assets/7f180ec8-354d-45c5-9e9f-9022043917ec" />
 
 
 Result
 
-Thus the DSB-SC-AM Modulation and Demodulation is generated.
+<img width="1222" height="625" alt="image" src="https://github.com/user-attachments/assets/be9931d5-91bb-4d68-9f34-00745c8131af" />
 
