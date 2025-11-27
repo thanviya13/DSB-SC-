@@ -48,14 +48,50 @@ Model Waveform
 <img width="703" height="679" alt="image" src="https://github.com/user-attachments/assets/e7c7c7f8-ccf2-41ac-b1f3-325989941a6f" />
 
 Program
+```
+import numpy as np
+import matplotlib.pyplot as plt
+Ac = 122.6
+fc = 1000
+Am = 61.3
+fm = 500
+fs = 70000
+t = np.arange(0, 2/fm, 1/fs)
+Wm = 2 * np.pi * fm
+Wc = 2 * np.pi * fc
+Em = Am * np.sin(Wm * t)
+Ec = Ac * np.sin(Wc * t)
+Edsbsc = ((Am / 2) * np.cos((Wc - Wm) * t)) - ((Am / 2) * np.cos((Wc + Wm) * t))
+plt.figure(figsize=(10, 6))
+plt.subplot(3, 1, 1)
+plt.plot(t, Em)
+plt.grid()
+plt.subplot(3, 1, 2)
+plt.plot(t, Ec)
 
+plt.grid()
+plt.subplot(3, 1, 3)
+plt.plot(t, Edsbsc)
+plt.grid()
+plt.tight_layout()
+plt.show()
+```
 Output Graph
+
+
+<img width="582" height="411" alt="Screenshot 2025-11-27 114203" src="https://github.com/user-attachments/assets/c6277ac3-db18-4d87-b856-f57d083798c5" />
+
+
 
 
 Tablular Column
 
 
+<img width="607" height="880" alt="Screenshot 2025-11-27 114055" src="https://github.com/user-attachments/assets/be034fd7-d545-4c98-9e6a-89c7c09a0cd4" />
+
+
 Result
 
-Thus the DSB-SC-AM Modulation and Demodulation is generated.
+
+<img width="481" height="929" alt="image" src="https://github.com/user-attachments/assets/b2c4bf3a-7c79-4ed4-ae5b-bf15e14b019f" />
 
