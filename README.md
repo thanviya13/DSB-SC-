@@ -81,6 +81,7 @@ title("DSB-SC Modulated Signal s(t)");
 xgrid();
 ```
 Output Graph
+
 <img width="833" height="407" alt="image" src="https://github.com/user-attachments/assets/bceb9079-b3e9-4056-8663-1d5f9dff2117" />
 
 
