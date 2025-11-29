@@ -48,14 +48,48 @@ Model Waveform
 <img width="703" height="679" alt="image" src="https://github.com/user-attachments/assets/e7c7c7f8-ccf2-41ac-b1f3-325989941a6f" />
 
 Program
-
+```
+clc;
+clear;
+close;
+Ac=16.6;
+Am=8.3;
+Fc=4000;
+Fm=400;
+Fs=50000;
+t=0:1/Fs:2/Fm;
+wm=2*3.14*Fm;
+wc=2*3.14*Fc;
+E1=Am*sin(2*3.14*Fm*t);
+subplot(3,1,1);
+plot(t,E1);
+xlabel("Time(s)");
+ylabel("Amplitude");
+title("Message Signal m(t)");
+E2=Ac*sin(2*3.14*Fc*t);
+subplot(3,1,2);
+plot(t,E2);
+xlabel("Time(s)");
+ylabel("Amplitude");
+title("Carrier Signal c(t)");
+E3=((Am/2)*cos((wc-wm)*t))-((Am/2)*cos((wc+wm)*t));
+subplot(3,1,3)
+plot(t,E3);
+xlabel("Time(s)");
+ylabel("Amplitude");
+title("DSB-SC Modulated Signal s(t)");
+xgrid();
+```
 Output Graph
+<img width="833" height="407" alt="image" src="https://github.com/user-attachments/assets/bceb9079-b3e9-4056-8663-1d5f9dff2117" />
 
 
 Tablular Column
 
+<img width="1331" height="739" alt="image" src="https://github.com/user-attachments/assets/7b13de90-3627-46dd-8271-42f9f1cb9cf8" />
+
 
 Result
 
-Thus the DSB-SC-AM Modulation and Demodulation is generated.
+<img width="681" height="330" alt="image" src="https://github.com/user-attachments/assets/5c2936d1-b8f6-482f-b17a-207880c543ed" />
 
